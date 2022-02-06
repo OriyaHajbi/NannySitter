@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/babyboy"
+    tools:context=".SignUpActivity">
+
+    <TextView
+        android:id="@+id/SignUp_LBL_LogoName"
+        android:layout_width="360dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="60dp"
+        android:text="NannySitter"
+        android:textColor="@color/blue_baby"
+        android:textSize="50sp" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/SignUp_LBL_FirstName"
+        android:layout_width="360dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/SignUp_LBL_LogoName"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:hint="First Name" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/SignUp_LBL_LastName"
+        android:layout_width="360dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/SignUp_LBL_FirstName"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:hint="Last Name" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/SignUp_LBL_Email"
+        android:layout_width="360dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/SignUp_LBL_LastName"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:hint="Email" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/SignUp_LBL_Password"
+        android:layout_width="360dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/SignUp_LBL_Email"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:hint="Password"
+        android:inputType="textPassword" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/SignUp_LBL_Password2"
+        android:layout_width="360dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/SignUp_LBL_Password"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:hint="Re-Password"
+        android:inputType="textPassword" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/SignUp_BTN_Sign_Up"
+        android:layout_width="360dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/SignUp_LBL_Password2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="@color/blue_baby"
+        android:text="Sign up"
+        android:textSize="13sp"
+        android:textStyle="bold"
+        app:cornerRadius="50dp">
+
+    </com.google.android.material.button.MaterialButton>
+    <LinearLayout
+        android:id="@+id/SignUp_LY_Signin"
+        android:layout_width="match_parent"
+        android:layout_below="@id/SignUp_BTN_Sign_Up"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/SignUp_TXT_haveAccount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:textColor="#000"
+            android:textSize="18sp"
+            android:text="                 Have an account?"
+            />
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/SignUp_BTN_Sign_In"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:text="Sign In"
+            android:textAllCaps="false"
+            android:textColor="#47DDF1"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
+</RelativeLayout>

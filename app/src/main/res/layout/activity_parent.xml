@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ParentActivity"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/parent_LN_video"
+        android:layout_width="match_parent"
+        android:layout_weight="3"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <FrameLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <FrameLayout
+                android:id="@+id/parent_FRM_container"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent" >
+            </FrameLayout>
+        </FrameLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/parent_LN_music"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_below="@id/parent_LN_video"
+        android:orientation="horizontal">
+
+        <FrameLayout
+            android:id="@+id/parantV_FRM_music"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginStart="10dp">
+
+        </FrameLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/parent_LN_buttons"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_below="@id/parent_LN_music"
+        android:orientation="horizontal">
+
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/parentV_BTN_song"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="52dp"
+            android:layout_height="52dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:insetLeft="0dp"
+            android:insetTop="0dp"
+            android:insetRight="0dp"
+            android:insetBottom="0dp"
+            app:cornerRadius="50dp"
+            app:icon="@drawable/ic_baseline_arrow_circle_up_24"
+            app:iconGravity="textStart"
+            app:iconPadding="0dp"
+            app:iconSize="36dp"
+            app:iconTint="@color/blue_baby"
+            app:strokeColor="@color/blue_baby" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/parentV_BTN_mute"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="52dp"
+            android:layout_height="52dp"
+            android:layout_marginStart="230dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:insetLeft="0dp"
+            android:insetTop="0dp"
+            android:insetRight="0dp"
+            android:insetBottom="0dp"
+            app:cornerRadius="50dp"
+            app:icon="@drawable/ic_baseline_mic_off_24"
+            app:iconGravity="textStart"
+            app:iconPadding="0dp"
+            app:iconSize="36dp"
+            app:iconTint="@color/blue_baby"
+            app:strokeColor="@color/blue_baby" />
+    </LinearLayout>
+
+</LinearLayout>

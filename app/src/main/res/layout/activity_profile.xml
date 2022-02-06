@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ProfileActivity"
+    android:orientation="vertical">
+    
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@color/blue_baby"
+        android:id="@+id/profile_LY_profImage"
+        android:padding="20dp">
+
+        <ImageView
+            android:id="@+id/profile_IMG_profImage"
+            android:layout_width="100dp"
+
+            android:layout_height="100dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/babyboy" />
+
+
+        <ImageButton
+            android:id="@+id/profile_BTN_setting"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentRight="true"
+            android:background="@color/blue_baby"
+            android:src="@drawable/settingicon" />
+
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/profile_LBL_fullName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/profile_IMG_profImage"
+            android:includeFontPadding="false"
+            android:text="Full name"
+            android:textColor="#000"
+            android:textSize="20sp" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/profile_LBL_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/profile_LBL_fullName"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/profile_IMG_profImage"
+            android:includeFontPadding="false"
+            android:text="email"
+            android:textSize="14sp" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-70dp"
+        android:layout_width="match_parent"
+        android:padding="10dp">
+
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_height="125dp"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            app:cardBackgroundColor="@color/blue_baby"
+            app:cardElevation="10dp">
+
+            <RelativeLayout
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:padding="5dp">
+
+                <ImageButton
+                    android:id="@+id/profile_BTN_song"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_centerHorizontal="true"
+                    android:background="@color/blue_baby"
+                    android:src="@drawable/musicicon" />
+
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/profile_LBL_cardSongName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:includeFontPadding="false"
+                    android:text="Favorite Song"
+                    android:textSize="20sp" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/profile_LBL_cardSong"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/profile_LBL_cardSongName"
+                    android:layout_centerHorizontal="true"
+                    android:includeFontPadding="false"
+                    android:text="default"
+                    android:textSize="20sp" />
+
+            </RelativeLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/profile_LY_sensors">
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:layout_marginStart="15dp"
+                android:textColor="@color/blue_baby"
+                android:textSize="15sp"
+                android:text="Volume Sensor"
+                android:layout_marginTop="10dp">
+            </com.google.android.material.textview.MaterialTextView>
+            <androidx.appcompat.widget.AppCompatSeekBar
+                android:id="@+id/profile_SNS_volume"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            </androidx.appcompat.widget.AppCompatSeekBar>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:textColor="@color/blue_baby"
+                android:layout_marginStart="15dp"
+                android:textSize="15sp"
+                android:layout_marginTop="10dp"
+                android:text="light Sensor">
+            </com.google.android.material.textview.MaterialTextView>
+            <androidx.appcompat.widget.AppCompatSeekBar
+                android:id="@+id/profile_SNS_light"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            </androidx.appcompat.widget.AppCompatSeekBar>
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:textColor="@color/blue_baby"
+                android:layout_marginStart="15dp"
+                android:textSize="15sp"
+                android:layout_marginTop="10dp"
+                android:text="Temperature Sensor">
+            </com.google.android.material.textview.MaterialTextView>
+            <androidx.appcompat.widget.AppCompatSeekBar
+                android:id="@+id/profile_SNS_temperature"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            </androidx.appcompat.widget.AppCompatSeekBar>
+
+
+    </LinearLayout>
+
+    <ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/profile_LY_setting">
+
+        <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="15dp">
+
+
+            <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/profile_LY_song"
+            android:orientation="horizontal">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="36dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1"
+                    android:text="Favorite song">
+                </com.google.android.material.textview.MaterialTextView>
+                <Spinner
+                    android:id="@+id/profile_SPN_songs"
+                    android:layout_weight="8"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="36dp">
+                </Spinner>
+            </LinearLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="First name">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/profile_LBL_firstName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="10dp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Last name"
+                android:layout_marginTop="10dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/profile_LBL_lastName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="10dp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/profile_BTN_Save"
+                android:layout_width="360dp"
+                android:layout_height="70dp"
+                android:layout_below="@id/profile_LY_song"
+                android:layout_centerHorizontal="true"
+                android:backgroundTint="@color/blue_baby"
+                android:text="Save"
+                android:textSize="30sp"
+                app:cornerRadius="50dp">
+
+            </com.google.android.material.button.MaterialButton>
+        </LinearLayout>
+    </ScrollView>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/profile_LY_watch">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/profile_BTN_watch"
+            android:layout_width="360dp"
+            android:layout_height="70dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="130dp"
+            android:backgroundTint="@color/blue_baby"
+            android:text="Watch"
+            android:textSize="30sp"
+            app:cornerRadius="50dp"></com.google.android.material.button.MaterialButton>
+
+    </RelativeLayout>
+
+
+
+</LinearLayout>
+

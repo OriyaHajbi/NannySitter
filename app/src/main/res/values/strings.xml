@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">NannySitter</string>
+
+    <string-array name="songs">
+        <item>default</item>
+        <item>bella chao</item>
+        <item>baby laugh</item>
+        <item>baby shark</item>
+    </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

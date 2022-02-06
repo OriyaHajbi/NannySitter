@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ChooseActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:id="@+id/choose_LY_btns">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Let's save our baby!"
+            android:layout_marginStart="25dp"
+            android:textColor="@color/blue_baby"
+            android:layout_marginTop="15dp"
+            android:textSize="40sp">
+        </com.google.android.material.textview.MaterialTextView>
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/choose_animation_view"
+            android:layout_width="wrap_content"
+            android:layout_height="400dp"
+            android:layout_marginTop="20dp"
+            app:lottie_rawRes="@raw/lottie_baby_wait"
+            app:lottie_loop="true"
+            app:lottie_autoPlay="true" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:orientation="horizontal">
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/choose_BTN_baby"
+                android:layout_width="180dp"
+                android:layout_height="70dp"
+                android:layout_centerHorizontal="true"
+                android:backgroundTint="@color/blue_baby"
+
+                android:layout_marginStart="10dp"
+                android:textSize="30sp"
+                app:cornerRadius="50dp"
+                android:text="Baby">
+            </com.google.android.material.button.MaterialButton>
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/choose_BTN_parent"
+                android:layout_width="180dp"
+                android:layout_height="70dp"
+                android:layout_centerHorizontal="true"
+                android:backgroundTint="@color/blue_baby"
+                android:layout_marginStart="20dp"
+                android:textSize="30sp"
+                app:cornerRadius="50dp"
+                android:text="Parent">
+            </com.google.android.material.button.MaterialButton>
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</RelativeLayout>

@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/babyboy"
+    tools:context=".LoginActivity">
+
+    <TextView
+        android:id="@+id/login_LBL_LogoName"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="60dp"
+        android:text="NannySitter"
+        android:textColor="@color/blue_baby"
+        android:textSize="50sp" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/Login_LBL_Email"
+        android:layout_width="360dp"
+        android:layout_height="50dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="250dp"
+        android:hint="Email" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/Login_LBL_Password"
+        android:layout_width="360dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/Login_LBL_Email"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:hint="Password"
+        android:inputType="textPassword" />
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/Login_BTN_Login"
+        android:layout_width="360dp"
+        android:layout_height="70dp"
+        android:layout_below="@id/Login_BTN_ForgotPassword"
+        android:layout_centerHorizontal="true"
+        android:backgroundTint="@color/blue_baby"
+        android:text="Login"
+        android:textSize="30sp"
+        app:cornerRadius="50dp">
+
+    </com.google.android.material.button.MaterialButton>
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/Login_BTN_ForgotPassword"
+        android:layout_width="360dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/Login_LBL_Password"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:background="@android:color/transparent"
+        android:text="Forgot Password"
+        android:textAlignment="center"
+        android:textColor="@color/blue_baby"
+        android:textSize="13sp"
+        android:textStyle="bold">
+
+    </com.google.android.material.button.MaterialButton>
+
+    <LinearLayout
+        android:id="@+id/Login_LY_singup"
+        android:layout_width="wrap_content"
+        android:layout_below="@id/Login_BTN_Login"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/Login_TXT_haveAccount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#000"
+            android:textSize="18sp"
+            android:text="Already have an account?"
+            />
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/Login_BTN_Register"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:text="Sign Up"
+            android:textAllCaps="false"
+            android:textColor="#47DDF1"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </LinearLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/Login_BTN_google"
+        android:layout_width="360dp"
+        android:layout_height="70dp"
+        android:layout_below="@id/Login_LY_singup"
+        android:layout_centerHorizontal="true"
+        android:backgroundTint="@color/grey_200"
+        android:drawableLeft="@drawable/google"
+        android:elevation="8dp"
+        android:text="sign in with Google"
+        android:textColor="@color/black"
+        app:cornerRadius="50dp">
+
+    </com.google.android.material.button.MaterialButton>
+
+
+
+</RelativeLayout>

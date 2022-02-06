@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "663889908846",
+    "project_id": "nannysitter-9baff",
+    "storage_bucket": "nannysitter-9baff.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:663889908846:android:0593097653c9ddffe5427f",
+        "android_client_info": {
+          "package_name": "dev.oriya.nannysitter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "663889908846-utrj62174pc063fpln97hp321qh2i03e.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "dev.oriya.nannysitter",
+            "certificate_hash": "06befde93557a812fcdfc8e322e53c52609f3b6a"
+          }
+        },
+        {
+          "client_id": "663889908846-vppevqtje7ljcgfu6lan43i52mnk9p3l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAIlWZS5c_Zb2G7alDF68w_BrYQkZS2g9w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "663889908846-vppevqtje7ljcgfu6lan43i52mnk9p3l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
