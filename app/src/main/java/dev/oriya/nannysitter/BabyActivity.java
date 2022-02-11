@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.Manifest;
 import android.content.ComponentName;
+import android.content.Context;
+import android.content.Intent;
 import android.content.ServiceConnection;
 import android.opengl.GLSurfaceView;
 import android.os.Bundle;
@@ -43,7 +45,39 @@ public class BabyActivity extends AppCompatActivity implements TemperatureSensor
     private boolean isTempBound = false;
     private boolean isLightBound = false;
 
+    private ServiceConnection mLightConnection = new ServiceConnection() {
+        @Override
+        public void onServiceConnected(ComponentName name, IBinder service) {
+            mBinderLight = (LightSensorService.SensorServiceBinder) service;
+            mBinderLight.registerListener(BabyActivity.this);
+            isLightBound = true;
+            mBinderLight.startSensors();
+        }
 
+        @Override
+        public void onServiceDisconnected(ComponentName name) {
+            mBinderLight.stopSensors();
+            isLightBound = false;
+        }
+    };
+
+    private ServiceConnection mTempConnection = new ServiceConnection() {
+        @Override
+        public void onServiceConnected(ComponentName name, IBinder service) {
+            Log.d("snnnn" , "snnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn");
+            mBinderTemperature = (TemperatureSensorService.SensorServiceBinder) service;
+            mBinderTemperature.registerListener(BabyActivity.this);
+            isTempBound = true;
+            mBinderTemperature.startSensors();
+            Log.d("snnnn" , "jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj");
+        }
+
+        @Override
+        public void onServiceDisconnected(ComponentName name) {
+            mBinderTemperature.stopSensors();
+            isTempBound = false;
+        }
+    };
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,12 +85,11 @@ public class BabyActivity extends AppCompatActivity implements TemperatureSensor
 
         subscriberViewContainer = findViewById(R.id.baby_FRM_container);
 
-        requestPermissions();
 
+
+        requestPermissions();
 //        mBinderTemperature.startSensors();
 //        mBinderLight.startSensors();
-
-
 
 
     }
@@ -184,6 +217,13 @@ public class BabyActivity extends AppCompatActivity implements TemperatureSensor
         if (session != null) {
             session.onPause();
         }
+        if (isTempBound)
+            mBinderTemperature.stopSensors();
+        if (isLightBound)
+            mBinderLight.stopSensors();
+
+        stopService(new Intent(this, LightSensorService.class));
+        stopService(new Intent(this, TemperatureSensorService.class));
     }
 
     @Override
@@ -192,52 +232,61 @@ public class BabyActivity extends AppCompatActivity implements TemperatureSensor
         if (session != null) {
             session.onResume();
         }
+        if (isTempBound) {
+            mBinderTemperature.resetInitialLock();
+            mBinderTemperature.startSensors();
+
+            if (isLightBound) {
+                mBinderLight.resetInitalLock();
+                mBinderLight.startSensors();
+            }
+        }
     }
 
 
     @Override
     public void lightAlarmStateChanged(ALARM_STATE_LIGHT state) {
+        Log.d("klll" , "LightWorkLightWorkLightWorkLightWorkLightWork");
         if(state==ALARM_STATE_LIGHT.ON){
+            Log.d("klll" , "lightONNN");
             session.sendSignal(LIGHT_NOTIFICATION,"the light has changed");
         }
     }
 
     @Override
     public void temperatureAlarmStateChanged(ALARM_STATE_TEMPERATURE state) {
+        Log.d("klll" , "TemperatureWorkTemperatureWorkTemperatureWorkTemperatureWork");
         if(state==ALARM_STATE_TEMPERATURE.ON){
+            Log.d("klll" , "temperatureONNNN");
             session.sendSignal(TEMPERATURE_NOTIFICATION,"the temperature has changed");
         }
     }
-    private ServiceConnection mTempConnection = new ServiceConnection() {
-        @Override
-        public void onServiceConnected(ComponentName name, IBinder service) {
-            mBinderTemperature = (TemperatureSensorService.SensorServiceBinder) service;
-            mBinderTemperature.registerListener(BabyActivity.this);
-            isTempBound = true;
-            mBinderTemperature.startSensors( );
-        }
 
-        @Override
-        public void onServiceDisconnected(ComponentName name) {
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Intent intent = new Intent(this, LightSensorService.class);
+        bindService(intent, mLightConnection, Context.BIND_AUTO_CREATE);
+
+        Intent intent1 = new Intent(this, TemperatureSensorService.class);
+        bindService(intent1, mTempConnection, Context.BIND_AUTO_CREATE);
+    }
+
+    @Override
+    public void  onDestroy () {
+        super.onDestroy();
+        if (session != null) {
+            session.disconnect();
+        }
+        if (isTempBound)
             mBinderTemperature.stopSensors();
-            isTempBound = false;
-        }
-    };
-    private ServiceConnection mLightConnection = new ServiceConnection() {
-        @Override
-        public void onServiceConnected(ComponentName name, IBinder service) {
-            mBinderLight = (LightSensorService.SensorServiceBinder) service;
-            mBinderLight.registerListener(BabyActivity.this);
-            isLightBound = true;
-            mBinderLight.startSensors( );
-        }
-
-        @Override
-        public void onServiceDisconnected(ComponentName name) {
+        if (isLightBound)
             mBinderLight.stopSensors();
-            isLightBound = false;
-        }
-    };
+
+        stopService(new Intent(this, LightSensorService.class));
+        stopService(new Intent(this, TemperatureSensorService.class));
+    }
 }
 interface HostListener{
     void setMinTemp(int temp);

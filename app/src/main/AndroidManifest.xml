@@ -45,6 +45,22 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <service
+            android:name=".TemperatureSensorService"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.android.gps.services.LocationService" />
+            </intent-filter>
+        </service>
+        <service
+            android:name=".LightSensorService"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.android.gps.services.LocationService" />
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>

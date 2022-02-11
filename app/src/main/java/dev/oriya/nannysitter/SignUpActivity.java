@@ -96,8 +96,11 @@ public class SignUpActivity extends AppCompatActivity {
                 mAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        if(task.isSuccessful())
+                        if(task.isSuccessful()){
                             Tools.myToast(SignUpActivity.this , "You are successfully Registered");
+                            startActivity(new Intent(SignUpActivity.this , ProfileActivity.class));
+                            finish();
+                        }
                         else{
                             startActivity(new Intent(SignUpActivity.this, ProfileActivity.class));
                             finish();

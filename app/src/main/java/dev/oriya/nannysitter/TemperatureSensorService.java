@@ -9,6 +9,7 @@ import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Binder;
 import android.os.IBinder;
+import android.util.Log;
 
 import androidx.annotation.Nullable;
 
@@ -26,6 +27,14 @@ public class TemperatureSensorService extends Service implements SensorEventList
     private SensorManager mSensorManager;
     private Sensor mTemperature;
 
+    //temp user callback
+    private User_Callback user_callback;
+
+    public TemperatureSensorService setUser_callback(User_Callback user_callback) {
+        this.user_callback = user_callback;
+        return this;
+    }
+
     public TemperatureSensorService() {
 
     }
@@ -34,6 +43,25 @@ public class TemperatureSensorService extends Service implements SensorEventList
         super.onCreate();
         mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         mTemperature = mSensorManager.getDefaultSensor(Sensor.TYPE_AMBIENT_TEMPERATURE);
+        setTemperature();
+    }
+
+    private void setTemperature() {
+            user_callback = new User_Callback() {
+                @Override
+                public void userExistAndGetUserData(User user) {
+                    threshold = user.getTemperatureTreshold();
+                    Log.d("pttt" , "temperaturre is change to " + threshold );
+                }
+
+                @Override
+                public void userDoesNotExist() {
+                    threshold = 3;
+                }
+            };
+            myDB.getInstance().setUser_callback(user_callback);
+            myDB.getInstance().LoadUser();
+
     }
 
     @Override
@@ -52,15 +80,18 @@ public class TemperatureSensorService extends Service implements SensorEventList
 
     @Override
     public void onSensorChanged(SensorEvent event) {
+        Log.d("klll" , "kllllllllllllllllllllllllllllll");
         if (isLocked == false) {
             isLocked = true;
             firstX = event.values[0];
 
         } else {
-            if(minTemp==-1)
+            if(minTemp==-1) {
                 minTemp=firstX- threshold;
-            if(maxTemp==-1)
-                maxTemp=firstX+ threshold;
+                if(maxTemp==-1) {
+                    maxTemp=firstX+ threshold;
+                }
+            }
 
             float absDiffX = Math.abs(firstX - event.values[0]);
 

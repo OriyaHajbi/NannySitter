@@ -61,6 +61,7 @@ public class ParentActivity extends AppCompatActivity {
     private int counter=0;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -142,6 +143,7 @@ public class ParentActivity extends AppCompatActivity {
             session.setSignalListener(new Session.SignalListener() {
                 @Override
                 public void onSignalReceived(Session session, String s, String s1, Connection connection) {
+                    Log.d("klll" , "notification");
                     notification(s1);
                 }
             });
