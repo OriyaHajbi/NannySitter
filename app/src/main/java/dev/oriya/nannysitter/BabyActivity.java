@@ -48,6 +48,7 @@ public class BabyActivity extends AppCompatActivity implements TemperatureSensor
     private ServiceConnection mLightConnection = new ServiceConnection() {
         @Override
         public void onServiceConnected(ComponentName name, IBinder service) {
+            Log.d("snnnn" , " light service connected on");
             mBinderLight = (LightSensorService.SensorServiceBinder) service;
             mBinderLight.registerListener(BabyActivity.this);
             isLightBound = true;
@@ -64,12 +65,11 @@ public class BabyActivity extends AppCompatActivity implements TemperatureSensor
     private ServiceConnection mTempConnection = new ServiceConnection() {
         @Override
         public void onServiceConnected(ComponentName name, IBinder service) {
-            Log.d("snnnn" , "snnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn");
+            Log.d("snnnn" , " temperature service connected on");
             mBinderTemperature = (TemperatureSensorService.SensorServiceBinder) service;
             mBinderTemperature.registerListener(BabyActivity.this);
             isTempBound = true;
             mBinderTemperature.startSensors();
-            Log.d("snnnn" , "jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj");
         }
 
         @Override
@@ -84,14 +84,7 @@ public class BabyActivity extends AppCompatActivity implements TemperatureSensor
         setContentView(R.layout.activity_baby);
 
         subscriberViewContainer = findViewById(R.id.baby_FRM_container);
-
-
-
         requestPermissions();
-//        mBinderTemperature.startSensors();
-//        mBinderLight.startSensors();
-
-
     }
 
     @AfterPermissionGranted(PERMISSIONS_REQUEST_CODE)
@@ -246,18 +239,16 @@ public class BabyActivity extends AppCompatActivity implements TemperatureSensor
 
     @Override
     public void lightAlarmStateChanged(ALARM_STATE_LIGHT state) {
-        Log.d("klll" , "LightWorkLightWorkLightWorkLightWorkLightWork");
         if(state==ALARM_STATE_LIGHT.ON){
-            Log.d("klll" , "lightONNN");
+            Log.d("klll" , "Light notification sent");
             session.sendSignal(LIGHT_NOTIFICATION,"the light has changed");
         }
     }
 
     @Override
     public void temperatureAlarmStateChanged(ALARM_STATE_TEMPERATURE state) {
-        Log.d("klll" , "TemperatureWorkTemperatureWorkTemperatureWorkTemperatureWork");
         if(state==ALARM_STATE_TEMPERATURE.ON){
-            Log.d("klll" , "temperatureONNNN");
+            Log.d("klll" , "temperature notification sent");
             session.sendSignal(TEMPERATURE_NOTIFICATION,"the temperature has changed");
         }
     }

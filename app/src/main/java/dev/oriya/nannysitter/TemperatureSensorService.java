@@ -51,7 +51,6 @@ public class TemperatureSensorService extends Service implements SensorEventList
                 @Override
                 public void userExistAndGetUserData(User user) {
                     threshold = user.getTemperatureTreshold();
-                    Log.d("pttt" , "temperaturre is change to " + threshold );
                 }
 
                 @Override
@@ -80,7 +79,6 @@ public class TemperatureSensorService extends Service implements SensorEventList
 
     @Override
     public void onSensorChanged(SensorEvent event) {
-        Log.d("klll" , "kllllllllllllllllllllllllllllll");
         if (isLocked == false) {
             isLocked = true;
             firstX = event.values[0];
